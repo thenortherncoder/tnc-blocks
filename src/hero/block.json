@@ -1,0 +1,48 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tnc/hero",
+	"version": "0.1.0",
+	"title": "Hero",
+	"category": "tnc-blocks",
+	"icon": "cover-image",
+	"description": "A full-width hero section with image, title, and supporting text.",
+	"example": {},
+	"supports": {
+		"html": false,
+		"color": {
+			"background": true,
+			"text": false,
+			"gradients": true
+		}
+	},
+	"attributes": {
+		"imageID": {
+			"type": "number"
+		},
+		"imageURL": {
+			"type": "string"
+		},
+		"title": {
+			"type": "string"
+		},
+		"body": {
+			"type": "string"
+		},
+		"style": {
+			"type": "object",
+			"default": {
+				"color": {
+					"gradient": "var:preset|gradient|green-primary-to-green-secondary",
+					"text": "var:preset|color|white"
+				}
+			}
+		}
+	},
+	"textdomain": "hero",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}

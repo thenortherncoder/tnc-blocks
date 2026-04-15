@@ -25,6 +25,7 @@
 	},
 	"devDependencies": {
 		"@tailwindcss/postcss": "^4.2.2",
+		"@tailwindcss/typography": "^0.5.19",
 		"@wordpress/scripts": "^31.8.0",
 		"postcss": "^8.5.9",
 		"tailwindcss": "^4.2.2"

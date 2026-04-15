@@ -1,0 +1,13 @@
+@theme {
+	--max-width-wp-wide: var(--wp--style--global--wide-size);
+	--max-width-wp-content: var(--wp--style--global--content-size);
+	--padding-gutter: var(--wp--preset--spacing--gutter);
+}
+
+.tnc-block.has-background {
+	@apply pt-6 pb-6 md:pt-8 md:pb-8 lg:pt-16 lg:pb-16;
+}
+
+[class*="has-background"] + [class*="has-background"] {
+	margin-top: 0 !important;
+}

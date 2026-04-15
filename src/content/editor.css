@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@import "../styles/tailwind-theme";
+
+.tnc-content .prose .block-editor-block-list__layout > :first-child {
+	@apply !mt-0;
+}
+
+.tnc-content .prose .block-editor-block-list__layout > :last-child {
+	@apply !mb-0;
+}

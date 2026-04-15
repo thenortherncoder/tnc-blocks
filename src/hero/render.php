@@ -30,28 +30,46 @@ if ( ! $has_non_empty_attributes ) {
 }
 ?>
 
-<div <?php echo get_block_wrapper_attributes([ 'class' => 'tnc-hero w-full max-w-full' ]); ?>>
-	<div class="tnc-hero-inner ml-auto mr-auto p-6 md:p-8 lg:p-16 flex flex-col md:flex-row justify-between items-stretch gap-8">
+<div <?php echo get_block_wrapper_attributes([ 'class' => 'tnc-block tnc-hero w-full max-w-full pl-gutter pr-gutter' ]); ?>>
+	<div class="max-w-wp-wide ml-auto mr-auto flex flex-col md:flex-row justify-between items-stretch gap-8">
 
-		<div class="self-center">
-			<?php if ( isset( $attributes['title'] ) && $attributes['title'] ) : ?>
-				<h1 class="!text-white has-hero-heading-font-size mb-0"><?php echo esc_html( $attributes['title'] ); ?></h1>
-			<?php endif; ?>
+		<?php
+			$content_container_width = (isset( $attributes['imageURL'] ) && $attributes['imageURL'] ) ? 'md:w-[50%]' : 'md:w-[60%]';
+		?>
 
-			<?php if ( isset( $attributes['body'] ) && $attributes['body'] ) : ?>
-				<p class="text-white has-hero-text-font-size mb-0 mt-4"><?php echo esc_html( $attributes['body'] ); ?></p>
-			<?php endif; ?>
+		<div class="self-center w-full <?php echo esc_attr( $content_container_width ); ?>">
+			<?php
+				$parent_id = wp_get_post_parent_id( get_the_ID() );
+
+				if ( $parent_id ) :
+					?>
+					<p class="!text-white uppercase"><?php echo esc_html( get_the_title( $parent_id ) ); ?></p>
+					<?php
+				endif;
+
+				if ( isset( $attributes['title'] ) && $attributes['title'] ) :
+					?>
+					<h1 class="!text-white has-hero-heading-font-size mb-0"><?php echo esc_html( $attributes['title'] ); ?></h1>
+					<?php
+				endif;
+
+				if ( isset( $attributes['body'] ) && $attributes['body'] ) :
+					?>
+					<p class="text-white has-hero-text-font-size !mb-0 mt-4"><?php echo esc_html( $attributes['body'] ); ?></p>
+					<?php
+				endif;
+			?>
 		</div>
 
-		<div class="w-full lg:max-w-[50%] md:min-w-[50%]">
-			<?php if ( isset( $attributes['imageURL'] ) && $attributes['imageURL'] ) : ?>
+		<?php if ( isset( $attributes['imageURL'] ) && $attributes['imageURL'] ) : ?>
+			<div class="relative w-full md:w-[50%]">
 				<img
 					class="w-full h-full object-cover rounded-2xl object-center aspect-6/4"
 					src="<?php echo esc_url( $attributes['imageURL'] ); ?>"
 					alt=""
 				/>
-			<?php endif; ?>
-		</div>
+			</div>
+		<?php endif; ?>
 
 	</div>
 </div>

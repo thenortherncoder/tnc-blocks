@@ -1,45 +1,34 @@
-/**
- * Retrieves the translation of text.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
- */
 import { __ } from '@wordpress/i18n';
-
-/**
- * React hook that is used to mark the block wrapper element.
- * It provides all the necessary props like the class name.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
- */
 import { useBlockProps, RichText, MediaPlaceholder } from '@wordpress/block-editor';
 import { Button } from '@wordpress/components';
 import { Icon, trash } from '@wordpress/icons';
+import './editor.css';
 
-/**
- * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
- * Those files can contain any CSS code that gets applied to the editor.
- *
- * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
- */
-import './editor.scss';
-
-/**
- * The edit function describes the structure of your block in the context of the
- * editor. This represents what the editor will render when the block is used.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#edit
- *
- * @return {Element} Element to render.
- */
 export default function Edit({ attributes, setAttributes }) {
 
 	const { title, body, imageURL, imageID } = attributes;
 
-	return (
-		<div { ...useBlockProps({ className: 'tnc-hero w-full max-w-full' }) }>
-			<div className="tnc-hero-inner ml-auto mr-auto p-6 md:p-8 lg:p-16 flex flex-col md:flex-row justify-between items-stretch gap-8">
+	const onSelectImage = ( media ) => {
+		setAttributes( {
+			imageID: media?.id,
+			imageURL: media?.url,
+		} );
+	};
 
-				<div className="self-center">
+	const onRemoveImage = () => {
+		setAttributes( {
+			imageID: null,
+			imageURL: null
+		} );
+	};
+
+	const content_container_width = imageURL ? 'md:w-[50%]' : 'md:w-[60%]';
+
+	return (
+		<div { ...useBlockProps({ className: 'tnc-block tnc-hero w-full max-w-full pl-gutter pr-gutter' }) }>
+			<div className="max-w-wp-wide ml-auto mr-auto flex flex-col md:flex-row justify-between items-stretch gap-8">
+
+				<div className={`self-center w-full ${content_container_width}`}>
 					<RichText
 						tagName='h1'
 						withoutInteractiveFormatting={true}
@@ -63,8 +52,8 @@ export default function Edit({ attributes, setAttributes }) {
 					/>
 				</div>
 
-				<div className="w-full lg:max-w-[50%] md:min-w-[50%] relative">
-					{!!imageURL && !!imageID ? (
+				<div className='relative w-full md:w-[50%]'>
+					{ imageURL ? (
 						<>
 							<img
 								src={ imageURL }
@@ -73,7 +62,7 @@ export default function Edit({ attributes, setAttributes }) {
 							/>
 							<Button
 								className='absolute top-4 left-4 !bg-white rounded cursor-pointer z-10 !p-1 !min-w-0 !h-auto'
-								onClick={ () => setAttributes( { imageID: null, imageURL: null } ) }
+								onClick={ onRemoveImage }
 								label={ __( 'Remove image', 'tnc' ) }
 							>
 								<Icon size={20} icon={ trash } />
@@ -81,17 +70,10 @@ export default function Edit({ attributes, setAttributes }) {
 						</>
 					) : (
 						<MediaPlaceholder
-							onSelect={
-								( media ) => {
-									setAttributes( {
-										imageID: media.id,
-										imageURL: media.url
-									} )
-								}
-							}
-							allowedTypes ={ [ 'image' ] }
+							onSelect = { onSelectImage }
+							allowedTypes = { [ 'image' ] }
 							multiples = { false }
-							labels = { { title: __( 'Pick an image', 'tnc' ) } }
+							labels = { { title: __( 'Select an image', 'tnc-blocks' ) } }
 						/>
 					)}
 				</div>

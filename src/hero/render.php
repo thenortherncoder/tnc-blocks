@@ -13,27 +13,38 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$has_non_empty_attributes = ! empty(
-    array_filter(
-        $attributes,
-        static function ( $value ) {
-            if ( is_string( $value ) ) {
-                return trim( $value ) !== '';
-            }
-            return ! empty( $value );
-        }
-    )
-);
+// $has_non_empty_attributes = ! empty(
+//     array_filter(
+//         $attributes,
+//         static function ( $value ) {
+//             if ( is_string( $value ) ) {
+//                 return trim( $value ) !== '';
+//             }
+//             return ! empty( $value );
+//         }
+//     )
+// );
 
-if ( ! $has_non_empty_attributes ) {
-    return;
-}
+// if ( ! $has_non_empty_attributes ) {
+//     return;
+// }
 ?>
 
 <div <?php echo get_block_wrapper_attributes([ 'class' => 'tnc-block tnc-hero w-full max-w-full pl-gutter pr-gutter' ]); ?>>
 	<div class="max-w-wp-wide ml-auto mr-auto flex flex-col md:flex-row justify-between items-stretch gap-8">
 
 		<?php
+			$resolved_title = isset( $attributes['title'] ) && $attributes['title']
+				? (string) $attributes['title']
+				: ( is_archive() ? (string) get_the_archive_title() : (string) get_the_title() );
+
+			$resolved_body = isset( $attributes['body'] ) && $attributes['body']
+				? (string) $attributes['body']
+				: ( is_archive() ? (string) get_the_archive_description() : '' );
+
+			$resolved_title = trim( wp_strip_all_tags( $resolved_title ) );
+			$resolved_body  = trim( wp_strip_all_tags( $resolved_body ) );
+
 			$content_container_width = (isset( $attributes['imageURL'] ) && $attributes['imageURL'] ) ? 'md:w-[50%]' : 'md:w-[60%]';
 		?>
 
@@ -47,15 +58,15 @@ if ( ! $has_non_empty_attributes ) {
 					<?php
 				endif;
 
-				if ( isset( $attributes['title'] ) && $attributes['title'] ) :
+				if ( $resolved_title ) :
 					?>
-					<h1 class="!text-white has-hero-heading-font-size mb-0"><?php echo esc_html( $attributes['title'] ); ?></h1>
+					<h1 class="!text-white has-hero-heading-font-size mb-0"><?php echo esc_html( $resolved_title ); ?></h1>
 					<?php
 				endif;
 
-				if ( isset( $attributes['body'] ) && $attributes['body'] ) :
+				if ( $resolved_body ) :
 					?>
-					<p class="text-white has-hero-text-font-size !mb-0 mt-4"><?php echo esc_html( $attributes['body'] ); ?></p>
+					<p class="text-white has-hero-text-font-size !mb-0 mt-4"><?php echo esc_html( $resolved_body ); ?></p>
 					<?php
 				endif;
 			?>

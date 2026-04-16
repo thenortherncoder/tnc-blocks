@@ -27,26 +27,6 @@ export default function Edit({ attributes, setAttributes }) {
 	return (
 		<div { ...useBlockProps() }>
 
-			<BlockControls>
-                <ToolbarGroup>
-                    <ToolbarButton
-                        icon={ link }
-                        label={ __( 'Set button link', 'tnc-blocks' ) }
-                        onClick={ () => setIsLinkPickerOpen( (open) => !open ) }
-                        isPressed={ isLinkPickerOpen }
-                    />
-                </ToolbarGroup>
-            </BlockControls>
-
-			{ isLinkPickerOpen && (
-                <Popover position="bottom center" onClose={ () => setIsLinkPickerOpen( false ) }>
-                    <LinkControl
-                        value={ { url: buttonUrl || '' } }
-                        onChange={ ( next ) => setAttributes( { buttonUrl: next?.url || '' } ) }
-                    />
-                </Popover>
-            ) }
-
 			{ imageURL ? (
 				<>
 					<img
@@ -90,10 +70,10 @@ export default function Edit({ attributes, setAttributes }) {
 				value={address}
 				onChange={(address) => setAttributes({ address: address.replace(/<[^>]*>/g, '') })}
 				placeholder='Enter address...'
-				className='!mb-0 mt-4'
+				className='mb-0 mt-4!'
 			/>
 
-			<p className="!mb-0 mt-4">
+			<p className="mb-0 mt-2!">
 				<RichText
 					tagName='a'
 					withoutInteractiveFormatting={true}
@@ -102,9 +82,28 @@ export default function Edit({ attributes, setAttributes }) {
 					value={telephone}
 					onChange={(telephone) => setAttributes({ telephone: telephone.replace(/<[^>]*>/g, '') })}
 					placeholder='Enter telephone...'
-					className='!mb-0 mt-4'
 				/>
 			</p>
+
+			<BlockControls>
+                <ToolbarGroup>
+                    <ToolbarButton
+                        icon={ link }
+                        label={ __( 'Set button link', 'tnc-blocks' ) }
+                        onClick={ () => setIsLinkPickerOpen( (open) => !open ) }
+                        isPressed={ isLinkPickerOpen }
+                    />
+                </ToolbarGroup>
+            </BlockControls>
+
+			{ isLinkPickerOpen && (
+                <Popover position="bottom center" onClose={ () => setIsLinkPickerOpen( false ) }>
+                    <LinkControl
+                        value={ { url: buttonUrl || '' } }
+                        onChange={ ( next ) => setAttributes( { buttonUrl: next?.url || '' } ) }
+                    />
+                </Popover>
+            ) }
 
 			<div className="wp-block-button mt-4">
 				<RichText

@@ -35,13 +35,13 @@
 
 		if ( isset( $attributes['address'] ) && $attributes['address'] ) :
 			?>
-			<p class="!mb-0 mt-4"><?php echo esc_html( $attributes['address'] ); ?></p>
+			<p class="mb-0 mt-4!"><?php echo esc_html( $attributes['address'] ); ?></p>
 			<?php
 		endif;
 
 		if ( isset( $attributes['telephone'] ) && $attributes['telephone'] ) :
 			?>
-			<p class="!mb-0 mt-4"><a href="tel:<?php echo esc_html( $attributes['telephone'] ); ?>"><?php echo esc_html( $attributes['telephone'] ); ?></a></p>
+			<p class="mb-0 mt-2!"><a href="tel:<?php echo esc_html( $attributes['telephone'] ); ?>"><?php echo esc_html( $attributes['telephone'] ); ?></a></p>
 			<?php
 		endif;
 

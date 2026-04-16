@@ -1,3 +1,23 @@
 @import "tailwindcss";
-@plugin "@tailwindcss/typography";
 @import "../styles/tailwind-theme";
+
+.tnc-content .tnc-content-inner > :first-child {
+	@apply mt-0!;
+}
+
+.tnc-content .tnc-content-inner > :last-child {
+	@apply mb-0!;
+}
+
+.tnc-content .tnc-content-inner ul,
+.tnc-content .tnc-content-inner ol {
+	@apply ml-5;
+}
+
+.tnc-content .tnc-content-inner ul li {
+	@apply list-disc pl-2;
+}
+
+.tnc-content .tnc-content-inner ol li {
+	@apply list-decimal pl-2;
+}

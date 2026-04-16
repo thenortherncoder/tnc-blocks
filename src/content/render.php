@@ -12,11 +12,9 @@
 ?>
 
 <div <?php echo get_block_wrapper_attributes([ 'class' => 'tnc-block tnc-content w-full max-w-full pl-gutter pr-gutter' ]); ?>>
-	<div class="max-w-wp-content ml-auto mr-auto">
+	<div class="tnc-content-inner max-w-wp-content ml-auto mr-auto">
 
-		<div class="prose max-w-none">
-			<?php echo $content; ?>
-		</div>
+		<?php echo $content; ?>
 
 	</div>
 </div>

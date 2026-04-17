@@ -5,13 +5,13 @@ A set of custom blocks.
 ## So far
 
 - Hero
+- Content
+- Profile Cards
 
 ## To do
 
-- Image & Text
-- Image
-- Video (Embed)
-- Article
+- Split content
+- Accordion
+- Cards
 - Carousel
-- Form
-- CTA
+- Media & Text

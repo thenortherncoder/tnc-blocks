@@ -1,0 +1,29 @@
+@import "tailwindcss";
+@import "../styles/tailwind-theme";
+
+.tnc-split-content
+	.tnc-split-content-inner
+	.tnc-split-content__content
+	> :first-child {
+	@apply mt-0!;
+}
+
+.tnc-split-content
+	.tnc-split-content-inner
+	.tnc-split-content__content
+	> :last-child {
+	@apply mb-0!;
+}
+
+.tnc-split-content .tnc-split-content-inner ul,
+.tnc-split-content .tnc-split-content-inner ol {
+	@apply ml-5;
+}
+
+.tnc-split-content .tnc-split-content-inner ul li {
+	@apply list-disc pl-2;
+}
+
+.tnc-split-content .tnc-split-content-inner ol li {
+	@apply list-decimal pl-2;
+}

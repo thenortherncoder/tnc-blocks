@@ -13,7 +13,10 @@ export default function Edit() {
 						'core/list-item',
 						'core/image',
 						'core/embed',
-						'core/shortcode'
+						'core/shortcode',
+						'core/table',
+						'core/buttons',
+						'core/button',
 					]}
 					templateLock={false}
 				/>

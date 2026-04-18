@@ -32,7 +32,6 @@ export default function Edit({ attributes, setAttributes }) {
 					<RichText
 						tagName='h1'
 						withoutInteractiveFormatting={true}
-						multiline={false}
 						allowedFormats={[]}
 						value={attributes.title}
 						onChange={(title) => setAttributes({ title: title.replace(/<[^>]*>/g, '') })}
@@ -43,7 +42,6 @@ export default function Edit({ attributes, setAttributes }) {
 					<RichText
 						tagName='p'
 						withoutInteractiveFormatting={true}
-						multiline={false}
 						allowedFormats={[]}
 						value={attributes.body}
 						onChange={(body) => setAttributes({ body: body.replace(/<[^>]*>/g, '') })}

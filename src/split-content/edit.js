@@ -17,7 +17,6 @@ export default function Edit({ attributes, setAttributes }) {
 				<RichText
 					tagName='h2'
 					withoutInteractiveFormatting={true}
-					multiline={false}
 					allowedFormats={[]}
 					value={title}
 					onChange={(title) => setAttributes({ title: title.replace(/<[^>]*>/g, '') })}

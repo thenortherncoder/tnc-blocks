@@ -54,7 +54,6 @@ export default function Edit({ attributes, setAttributes }) {
 			<RichText
 				tagName='h2'
 				withoutInteractiveFormatting={true}
-				multiline={false}
 				allowedFormats={[]}
 				value={name}
 				onChange={(name) => setAttributes({ name: name.replace(/<[^>]*>/g, '') })}
@@ -65,7 +64,6 @@ export default function Edit({ attributes, setAttributes }) {
 			<RichText
 				tagName='p'
 				withoutInteractiveFormatting={true}
-				multiline={false}
 				allowedFormats={[]}
 				value={address}
 				onChange={(address) => setAttributes({ address: address.replace(/<[^>]*>/g, '') })}
@@ -77,7 +75,6 @@ export default function Edit({ attributes, setAttributes }) {
 				<RichText
 					tagName='a'
 					withoutInteractiveFormatting={true}
-					multiline={false}
 					allowedFormats={[]}
 					value={telephone}
 					onChange={(telephone) => setAttributes({ telephone: telephone.replace(/<[^>]*>/g, '') })}
@@ -109,7 +106,6 @@ export default function Edit({ attributes, setAttributes }) {
 				<RichText
 					tagName='a'
 					withoutInteractiveFormatting={true}
-					multiline={false}
 					allowedFormats={[]}
 					value={buttonLabel}
 					onChange={(buttonLabel) => setAttributes({ buttonLabel: buttonLabel.replace(/<[^>]*>/g, '') })}

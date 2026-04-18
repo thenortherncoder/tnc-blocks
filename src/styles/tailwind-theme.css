@@ -2,6 +2,9 @@
 	--max-width-wp-wide: var(--wp--style--global--wide-size);
 	--max-width-wp-content: var(--wp--style--global--content-size);
 	--padding-gutter: var(--wp--preset--spacing--gutter);
+	--color-neutral-light: var(--wp--preset--color--neutral-light);
+	--transition-duration-wp: var(--wp--custom--transition--duration);
+	--transition-timing-function-wp: var(--wp--custom--transition--easing);
 }
 
 .tnc-block.has-background {

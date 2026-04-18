@@ -27,3 +27,7 @@
 .tnc-split-content .tnc-split-content-inner ol li {
 	@apply list-decimal pl-2;
 }
+
+.tnc-split-content .tnc-accordion {
+	@apply p-0;
+}

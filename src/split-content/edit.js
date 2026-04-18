@@ -38,6 +38,7 @@ export default function Edit({ attributes, setAttributes }) {
 							'core/table',
 							'core/buttons',
 							'core/button',
+							'tnc/accordion',
 						]}
 						templateLock={false}
 					/>

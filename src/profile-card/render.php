@@ -9,18 +9,23 @@
  *
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
+
+$image_id = isset( $attributes['imageID'] ) ? (int) $attributes['imageID'] : 0;
 ?>
 
 <div <?php echo get_block_wrapper_attributes(); ?>>
+
 	<?php
-		if ( isset( $attributes['imageURL'] ) && $attributes['imageURL'] ) :
-			?>
-			<img
-				class="object-cover rounded-2xl object-center aspect-6/4 mb-4"
-				src="<?php echo esc_url( $attributes['imageURL'] ); ?>"
-				alt=""
-			/>
-			<?php
+		if ( isset( $image_id ) && $image_id ) :
+			echo wp_get_attachment_image(
+				$image_id,
+				'card-small',
+				false,
+				[
+					'class' => 'object-cover rounded-2xl object-center aspect-6/4 mb-4',
+					'alt'   => '',
+				]
+			);
 		else :
 			?>
 			<div class="w-full bg-gray-200 rounded-2xl aspect-6/4 mb-4"></div>

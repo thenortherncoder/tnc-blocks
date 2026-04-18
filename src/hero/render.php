@@ -13,72 +13,68 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-// $has_non_empty_attributes = ! empty(
-//     array_filter(
-//         $attributes,
-//         static function ( $value ) {
-//             if ( is_string( $value ) ) {
-//                 return trim( $value ) !== '';
-//             }
-//             return ! empty( $value );
-//         }
-//     )
-// );
+$image_id = isset( $attributes['imageID'] ) ? (int) $attributes['imageID'] : 0;
+$post_has_parent = wp_get_post_parent_id( get_the_ID() );
 
-// if ( ! $has_non_empty_attributes ) {
-//     return;
-// }
+$resolved_title = isset( $attributes['title'] ) && $attributes['title']
+	? (string) $attributes['title']
+	: ( is_archive() ? (string) get_the_archive_title() : (string) get_the_title() );
+
+$resolved_title = trim( wp_strip_all_tags( $resolved_title ) );
+
+$resolved_body = isset( $attributes['body'] ) && $attributes['body']
+	? (string) $attributes['body']
+	// : ( is_archive() ? (string) get_the_archive_description() : '' );
+	: '';
+
+$resolved_body  = trim( wp_strip_all_tags( $resolved_body ) );
+
+if (get_option('page_for_posts') && is_home()) :
+	$parent_id = get_option('page_for_posts');
+	$resolved_title = get_the_title($parent_id);
+endif;
+
+$content_container_width = (isset( $attributes['imageID'] ) && $attributes['imageID'] ) ? 'md:w-[50%]' : 'md:w-[60%]';
 ?>
 
 <div <?php echo get_block_wrapper_attributes([ 'class' => 'tnc-block tnc-hero w-full max-w-full pl-gutter pr-gutter' ]); ?>>
 	<div class="max-w-wp-wide ml-auto mr-auto flex flex-col md:flex-row justify-between items-stretch gap-8">
 
-		<?php
-			$resolved_title = isset( $attributes['title'] ) && $attributes['title']
-				? (string) $attributes['title']
-				: ( is_archive() ? (string) get_the_archive_title() : (string) get_the_title() );
-
-			$resolved_body = isset( $attributes['body'] ) && $attributes['body']
-				? (string) $attributes['body']
-				: ( is_archive() ? (string) get_the_archive_description() : '' );
-
-			$resolved_title = trim( wp_strip_all_tags( $resolved_title ) );
-			$resolved_body  = trim( wp_strip_all_tags( $resolved_body ) );
-
-			$content_container_width = (isset( $attributes['imageURL'] ) && $attributes['imageURL'] ) ? 'md:w-[50%]' : 'md:w-[60%]';
-		?>
-
 		<div class="self-center w-full <?php echo esc_attr( $content_container_width ); ?>">
 			<?php
-				$parent_id = wp_get_post_parent_id( get_the_ID() );
-
-				if ( $parent_id ) :
+				if ( $post_has_parent ) :
 					?>
-					<p class="!text-white uppercase"><?php echo esc_html( get_the_title( $parent_id ) ); ?></p>
+					<p class="text-white! uppercase"><?php echo esc_html( get_the_title( $post_has_parent ) ); ?></p>
 					<?php
 				endif;
 
 				if ( $resolved_title ) :
 					?>
-					<h1 class="!text-white has-hero-heading-font-size mb-0"><?php echo esc_html( $resolved_title ); ?></h1>
+					<h1 class="text-white! has-hero-heading-font-size mb-0"><?php echo esc_html( $resolved_title ); ?></h1>
 					<?php
 				endif;
 
 				if ( $resolved_body ) :
 					?>
-					<p class="text-white has-hero-text-font-size !mb-0 mt-4"><?php echo esc_html( $resolved_body ); ?></p>
+					<p class="text-white! has-hero-text-font-size mb-0! mt-4"><?php echo esc_html( $resolved_body ); ?></p>
 					<?php
 				endif;
 			?>
 		</div>
 
-		<?php if ( isset( $attributes['imageURL'] ) && $attributes['imageURL'] ) : ?>
+		<?php if ( isset( $image_id ) && $image_id ) : ?>
 			<div class="relative w-full md:w-[50%]">
-				<img
-					class="w-full h-full object-cover rounded-2xl object-center aspect-6/4"
-					src="<?php echo esc_url( $attributes['imageURL'] ); ?>"
-					alt=""
-				/>
+				<?php
+					echo wp_get_attachment_image(
+						$image_id,
+						'card-medium',
+						false,
+						[
+							'class' => 'w-full h-full object-cover rounded-2xl object-center aspect-6/4',
+							'alt'   => '',
+						]
+					);
+				?>
 			</div>
 		<?php endif; ?>
 

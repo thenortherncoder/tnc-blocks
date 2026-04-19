@@ -7,7 +7,7 @@ export default function Edit({ attributes, setAttributes }) {
 	const { summary, content } = attributes;
 
 	return (
-		<details { ...useBlockProps({ className: 'bg-neutral-light rounded-lg mb-4 hover:cursor-pointer open:[&_svg]:rotate-45' }) }>
+		<details { ...useBlockProps({ className: 'tnc-accordion-item bg-neutral-light rounded-lg mb-4 hover:cursor-pointer open:[&_svg]:rotate-45' }) }>
 			<summary className="w-full flex justify-between p-6 items-center">
 
 				<RichText
@@ -31,7 +31,7 @@ export default function Edit({ attributes, setAttributes }) {
 				</svg>
 			</summary>
 
-			<div class="tnc-accordion-content p-6 pt-0">
+			<div class="tnc-accordion-item-content p-6 pt-0">
 				<InnerBlocks
 					allowedBlocks={[
 						'core/heading',

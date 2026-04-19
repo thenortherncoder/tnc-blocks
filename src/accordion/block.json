@@ -8,6 +8,11 @@
 	"icon": "excerpt-view",
 	"description": "A simple accordion block for toggling content visibility.",
 	"example": {},
+	"attributes": {
+		"title": {
+			"type": "string"
+		}
+	},
 	"supports": {
 		"html": false
 	},

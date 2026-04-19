@@ -14,6 +14,14 @@
 <div <?php echo get_block_wrapper_attributes([ 'class' => 'tnc-block tnc-accordion w-full max-w-full pl-gutter pr-gutter' ]); ?>>
 	<div class="tnc-accordion-inner max-w-wp-content ml-auto mr-auto">
 
+		<?php
+			if ( isset( $attributes['title'] ) && $attributes['title'] ) :
+				?>
+				<h2 class="mb-8"><?php echo esc_html( $attributes['title'] ); ?></h2>
+				<?php
+			endif;
+		?>
+
 		<?php echo $content; ?>
 
 	</div>

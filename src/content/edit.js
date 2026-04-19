@@ -19,6 +19,7 @@ export default function Edit() {
 						'core/button',
 					]}
 					templateLock={false}
+					renderAppender={InnerBlocks.ButtonBlockAppender}
 				/>
 			</div>
 		</div>

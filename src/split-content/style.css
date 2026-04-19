@@ -31,3 +31,7 @@
 .tnc-split-content .tnc-accordion {
 	@apply p-0;
 }
+
+.tnc-split-content .tnc-accordion .tnc-accordion-inner {
+	@apply m-0;
+}

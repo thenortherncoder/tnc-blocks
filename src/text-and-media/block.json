@@ -1,0 +1,41 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tnc/text-and-media",
+	"version": "0.1.0",
+	"title": "Text & Media",
+	"category": "tnc-blocks",
+	"icon": "align-left",
+	"description": "Text and media block with image or video on one side and text on the other.",
+	"example": {},
+	"attributes": {
+		"title": {
+			"type": "string"
+		},
+		"text": {
+			"type": "string"
+		},
+		"media": {
+			"type": "string"
+		},
+		"imageID": {
+			"type": "number"
+		},
+		"imageURL": {
+			"type": "string"
+		}
+	},
+	"supports": {
+		"html": false,
+		"color": {
+			"background": true,
+			"text": false
+		}
+	},
+	"textdomain": "text-and-media",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}

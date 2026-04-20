@@ -38,9 +38,9 @@ $content_container_width = (isset( $attributes['imageID'] ) && $attributes['imag
 ?>
 
 <div <?php echo get_block_wrapper_attributes([ 'class' => 'tnc-block tnc-hero w-full max-w-full pl-gutter pr-gutter' ]); ?>>
-	<div class="max-w-wp-wide ml-auto mr-auto flex flex-col md:flex-row justify-between items-stretch gap-8">
+	<div class="tnc-block-inner max-w-wp-wide ml-auto mr-auto flex flex-col md:flex-row justify-between items-stretch gap-8">
 
-		<div class="self-center w-full <?php echo esc_attr( $content_container_width ); ?>">
+		<div class="tnc-block-content self-center w-full <?php echo esc_attr( $content_container_width ); ?>">
 			<?php
 				if ( $post_has_parent ) :
 					?>

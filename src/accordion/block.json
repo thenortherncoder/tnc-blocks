@@ -8,6 +8,7 @@
 	"icon": "excerpt-view",
 	"description": "A simple accordion block for toggling content visibility.",
 	"example": {},
+	"usesContext": [ "tnc/isNested" ],
 	"attributes": {
 		"title": {
 			"type": "string"

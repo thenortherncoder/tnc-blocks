@@ -5,7 +5,7 @@ import './editor.css';
 export default function Edit() {
 	return (
 		<div { ...useBlockProps({ className: 'tnc-block tnc-profile-cards w-full max-w-full pl-gutter pr-gutter' }) }>
-			<div className="max-w-wp-wide ml-auto mr-auto">
+			<div className="tnc-block-inner max-w-wp-wide ml-auto mr-auto">
 				<InnerBlocks
 					allowedBlocks={[
 						'tnc/profile-card'

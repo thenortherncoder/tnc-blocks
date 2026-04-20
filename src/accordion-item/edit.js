@@ -7,15 +7,14 @@ export default function Edit({ attributes, setAttributes }) {
 	const { summary, content } = attributes;
 
 	return (
-		<details { ...useBlockProps({ className: 'tnc-accordion-item bg-neutral-light rounded-lg mb-4 hover:cursor-pointer open:[&_svg]:rotate-45' }) }>
-			<summary className="w-full flex justify-between p-6 items-center">
-
+		<details { ...useBlockProps({ className: 'tnc-block tnc-accordion-item bg-neutral-light rounded-lg mb-4 hover:cursor-pointer open:[&_svg]:rotate-45' }) }>
+			<summary className="tnc-block-inner w-full flex justify-between p-6 items-center">
 				<RichText
 					tagName='h3'
 					withoutInteractiveFormatting={true}
 					allowedFormats={[]}
 					value={summary}
-					onChange={(summary) => setAttributes({ summary: summary.replace(/<[^>]*>/g, '') })}
+					onChange={(summary) => setAttributes({ summary: summary })}
 					placeholder='Enter summary...'
 					className='mb-0'
 				/>
@@ -30,8 +29,7 @@ export default function Edit({ attributes, setAttributes }) {
 					/>
 				</svg>
 			</summary>
-
-			<div class="tnc-accordion-item-content p-6 pt-0">
+			<div className="tnc-block-content p-6 pt-0">
 				<InnerBlocks
 					allowedBlocks={[
 						'core/heading',

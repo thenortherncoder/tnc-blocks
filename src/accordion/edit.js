@@ -2,20 +2,26 @@ import { __ } from '@wordpress/i18n';
 import { useBlockProps, InnerBlocks, RichText } from '@wordpress/block-editor';
 import './editor.css';
 
-export default function Edit({ attributes, setAttributes }) {
+export default function Edit({ context, attributes, setAttributes }) {
 
 	const { title } = attributes;
 
+	const isNested = context['tnc/isNested'];
+
+    const blockProps = useBlockProps({
+        className: `tnc-block tnc-accordion w-full max-w-full ${isNested ? 'mb-ś' : 'pl-gutter pr-gutter'}`
+    });
+
 	return (
-		<div { ...useBlockProps({ className: 'tnc-block tnc-accordion w-full max-w-full pl-gutter pr-gutter' }) }>
-			<div className="tnc-accordion-inner max-w-wp-content ml-auto mr-auto">
+		<div { ...blockProps }>
+			<div className="tnc-block-inner tnc-block-content max-w-wp-content ml-auto mr-auto">
 
 				<RichText
 					tagName='h2'
 					withoutInteractiveFormatting={true}
 					allowedFormats={[]}
 					value={title}
-					onChange={(title) => setAttributes({ title: title.replace(/<[^>]*>/g, '') })}
+					onChange={(title) => setAttributes({ title: title })}
 					placeholder={__('Enter a title...', 'tnc')}
 					className='mb-8'
 				/>
@@ -27,6 +33,7 @@ export default function Edit({ attributes, setAttributes }) {
 						['tnc/accordion-item']
 					]}
 				/>
+
 			</div>
 		</div>
 	);

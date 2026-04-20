@@ -12,7 +12,7 @@
 ?>
 
 <div <?php echo get_block_wrapper_attributes([ 'class' => 'tnc-block tnc-split-content w-full max-w-full pl-gutter pr-gutter' ]); ?>>
-	<div class="tnc-split-content-inner max-w-wp-wide ml-auto mr-auto grid sm:grid-cols-[1fr_2fr] gap-8 lg:gap-12">
+	<div class="tnc-block-inner max-w-wp-wide ml-auto mr-auto grid sm:grid-cols-[1fr_2fr] gap-8 lg:gap-12">
 
 		<?php
 			if ( isset( $attributes['title'] ) && $attributes['title'] ) :
@@ -22,7 +22,7 @@
 			endif;
 		?>
 
-		<div class="tnc-split-content__content">
+		<div class="tnc-block-content">
 			<?php echo $content; ?>
 		</div>
 

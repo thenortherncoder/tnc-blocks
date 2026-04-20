@@ -12,19 +12,19 @@ export default function Edit({ attributes, setAttributes }) {
 
 	return (
 		<div { ...useBlockProps({ className: 'tnc-block tnc-split-content w-full max-w-full pl-gutter pr-gutter' }) }>
-			<div className="tnc-split-content-inner max-w-wp-wide ml-auto mr-auto grid sm:grid-cols-[1fr_2fr] gap-8 lg:gap-12">
+			<div className="tnc-block-inner max-w-wp-wide ml-auto mr-auto grid sm:grid-cols-[1fr_2fr] gap-8 lg:gap-12">
 
 				<RichText
 					tagName='h2'
 					withoutInteractiveFormatting={true}
 					allowedFormats={[]}
 					value={title}
-					onChange={(title) => setAttributes({ title: title.replace(/<[^>]*>/g, '') })}
+					onChange={(title) => setAttributes({ title: title })}
 					placeholder='Enter title...'
 					className='mb-0'
 				/>
 
-				<div className="tnc-split-content__content">
+				<div className="tnc-block-content">
 					<InnerBlocks
 						template={TEMPLATE}
 						allowedBlocks={[

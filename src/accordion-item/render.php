@@ -11,8 +11,8 @@
  */
 ?>
 
-<details <?php echo get_block_wrapper_attributes([ 'class' => 'tnc-accordion-item bg-neutral-light rounded-lg mb-4 hover:cursor-pointer open:[&_svg]:rotate-45' ]); ?>>
-	<summary class="w-full flex justify-between p-6 items-center">
+<details <?php echo get_block_wrapper_attributes([ 'class' => 'tnc-block tnc-accordion-item bg-neutral-light rounded-lg mb-4 hover:cursor-pointer open:[&_svg]:rotate-45' ]); ?>>
+	<summary class="tnc-block-inner w-full flex justify-between p-6 items-center">
 		<h3><?php echo $attributes['summary']; ?></h3>
 
 		<svg class="transition-wp duration-wp min-w-10 ml-10" width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
@@ -25,7 +25,7 @@
 			/>
 		</svg>
 	</summary>
-	<div class="tnc-accordion-item-content p-6 pt-0">
+	<div class="tnc-block-content p-6 pt-0">
 		<?php echo $content; ?>
 	</div>
 </details>

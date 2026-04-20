@@ -26,17 +26,17 @@ export default function Edit({ attributes, setAttributes }) {
 
 	return (
 		<div { ...useBlockProps({ className: 'tnc-block tnc-hero w-full max-w-full pl-gutter pr-gutter' }) }>
-			<div className="max-w-wp-wide ml-auto mr-auto flex flex-col md:flex-row justify-between items-stretch gap-8">
+			<div className="tnc-block-inner max-w-wp-wide ml-auto mr-auto flex flex-col md:flex-row justify-between items-stretch gap-8">
 
-				<div className={`self-center w-full ${content_container_width}`}>
+				<div className={`tnc-block-content self-center w-full ${content_container_width}`}>
 					<RichText
 						tagName='h1'
 						withoutInteractiveFormatting={true}
 						allowedFormats={[]}
 						value={attributes.title}
-						onChange={(title) => setAttributes({ title: title.replace(/<[^>]*>/g, '') })}
+						onChange={(title) => setAttributes({ title: title })}
 						placeholder='Enter a title...'
-						className='!text-white has-hero-heading-font-size mb-4'
+						className='text-white! has-hero-heading-font-size mb-4'
 					/>
 
 					<RichText
@@ -44,9 +44,9 @@ export default function Edit({ attributes, setAttributes }) {
 						withoutInteractiveFormatting={true}
 						allowedFormats={[]}
 						value={attributes.body}
-						onChange={(body) => setAttributes({ body: body.replace(/<[^>]*>/g, '') })}
+						onChange={(body) => setAttributes({ body: body })}
 						placeholder='Enter body text...'
-						className='text-white has-hero-text-font-size !mb-0'
+						className='text-white has-hero-text-font-size mb-0!'
 					/>
 				</div>
 
@@ -59,7 +59,7 @@ export default function Edit({ attributes, setAttributes }) {
 								className="w-full h-full object-cover rounded-2xl object-center aspect-6/4"
 							/>
 							<Button
-								className='absolute top-4 left-4 !bg-white rounded cursor-pointer z-10 !p-1 !min-w-0 !h-auto'
+								className='absolute top-4 left-4 bg-white! rounded cursor-pointer z-10 !p-1 !min-w-0 !h-auto'
 								onClick={ onRemoveImage }
 								label={ __( 'Remove image', 'tnc' ) }
 							>

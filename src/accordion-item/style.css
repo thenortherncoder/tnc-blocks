@@ -1,10 +1,2 @@
 @import "tailwindcss";
 @import "../styles/tailwind-theme";
-
-.tnc-accordion-item .tnc-accordion-item-content > :first-child {
-	@apply mt-0!;
-}
-
-.tnc-accordion-item .tnc-accordion-item-content > :last-child {
-	@apply mb-0!;
-}

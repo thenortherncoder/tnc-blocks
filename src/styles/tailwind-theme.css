@@ -14,3 +14,46 @@
 [class*="has-background"] + [class*="has-background"] {
 	margin-top: 0 !important;
 }
+
+.tnc-block-content > :first-child {
+	@apply mt-0!;
+}
+
+.tnc-block-content > :last-child {
+	@apply mb-0!;
+}
+
+.tnc-block-content ul,
+.tnc-block-content ol {
+	@apply ml-5;
+}
+
+.tnc-block-content ul li {
+	@apply list-disc pl-2;
+}
+
+.tnc-block-content ol li {
+	@apply list-decimal pl-2;
+}
+
+/* Editor */
+.block-editor-block-list__layout > :first-child {
+	@apply mt-0!;
+}
+
+.block-editor-block-list__layout > :last-child {
+	@apply mb-0!;
+}
+
+.block-editor-block-list__layout ul,
+.block-editor-block-list__layout ol {
+	@apply ml-5;
+}
+
+.block-editor-block-list__layout ul li {
+	@apply list-disc pl-2;
+}
+
+.block-editor-block-list__layout ol li {
+	@apply list-decimal pl-2;
+}

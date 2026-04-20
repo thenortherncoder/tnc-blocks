@@ -9,20 +9,26 @@
  *
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
+
+$is_nested = isset($block->context['tnc/isNested']) && $block->context['tnc/isNested'];
+
+$padding_class = $is_nested ? 'mb-6' : 'pl-gutter pr-gutter';
+$wrapper_classes = 'tnc-block tnc-accordion w-full max-w-full ' . $padding_class;
+
+$margin_class = $is_nested ? '' : 'ml-auto mr-auto';
+$inner_classes = 'tnc-block-inner tnc-block-content max-w-wp-content ' . $margin_class;
 ?>
 
-<div <?php echo get_block_wrapper_attributes([ 'class' => 'tnc-block tnc-accordion w-full max-w-full pl-gutter pr-gutter' ]); ?>>
-	<div class="tnc-accordion-inner max-w-wp-content ml-auto mr-auto">
-
+<div <?php echo get_block_wrapper_attributes([ 'class' => $wrapper_classes ]); ?>>
+	<div class="<?php echo esc_attr( $inner_classes ); ?>">
 		<?php
 			if ( isset( $attributes['title'] ) && $attributes['title'] ) :
 				?>
 				<h2 class="mb-8"><?php echo esc_html( $attributes['title'] ); ?></h2>
 				<?php
 			endif;
+
+			echo $content;
 		?>
-
-		<?php echo $content; ?>
-
 	</div>
 </div>

@@ -13,8 +13,7 @@
 $image_id = isset( $attributes['imageID'] ) ? (int) $attributes['imageID'] : 0;
 ?>
 
-<div <?php echo get_block_wrapper_attributes(); ?>>
-
+<div <?php echo get_block_wrapper_attributes([ 'class' => 'tnc-block tnc-profile-card tnc-block-content' ]); ?>>
 	<?php
 		if ( isset( $image_id ) && $image_id ) :
 			echo wp_get_attachment_image(

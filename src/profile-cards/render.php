@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <div <?php echo get_block_wrapper_attributes([ 'class' => 'tnc-block tnc-profile-cards w-full max-w-full pl-gutter pr-gutter' ]); ?>>
-	<div class="max-w-wp-wide ml-auto mr-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+	<div class="tnc-block-inner max-w-wp-wide ml-auto mr-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
 		<?php echo $content; ?>
 

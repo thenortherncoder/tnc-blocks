@@ -25,7 +25,7 @@ export default function Edit({ attributes, setAttributes }) {
 	};
 
 	return (
-		<div { ...useBlockProps() }>
+		<div { ...useBlockProps({ className: 'tnc-block tnc-profile-card tnc-block-content' }) }>
 
 			{ imageURL ? (
 				<>
@@ -56,7 +56,7 @@ export default function Edit({ attributes, setAttributes }) {
 				withoutInteractiveFormatting={true}
 				allowedFormats={[]}
 				value={name}
-				onChange={(name) => setAttributes({ name: name.replace(/<[^>]*>/g, '') })}
+				onChange={(name) => setAttributes({ name: name })}
 				placeholder='Enter name...'
 				className='mb-0'
 			/>
@@ -66,7 +66,7 @@ export default function Edit({ attributes, setAttributes }) {
 				withoutInteractiveFormatting={true}
 				allowedFormats={[]}
 				value={address}
-				onChange={(address) => setAttributes({ address: address.replace(/<[^>]*>/g, '') })}
+				onChange={(address) => setAttributes({ address: address })}
 				placeholder='Enter address...'
 				className='mb-0 mt-4!'
 			/>
@@ -77,7 +77,7 @@ export default function Edit({ attributes, setAttributes }) {
 					withoutInteractiveFormatting={true}
 					allowedFormats={[]}
 					value={telephone}
-					onChange={(telephone) => setAttributes({ telephone: telephone.replace(/<[^>]*>/g, '') })}
+					onChange={(telephone) => setAttributes({ telephone: telephone })}
 					placeholder='Enter telephone...'
 				/>
 			</p>
@@ -108,7 +108,7 @@ export default function Edit({ attributes, setAttributes }) {
 					withoutInteractiveFormatting={true}
 					allowedFormats={[]}
 					value={buttonLabel}
-					onChange={(buttonLabel) => setAttributes({ buttonLabel: buttonLabel.replace(/<[^>]*>/g, '') })}
+					onChange={(buttonLabel) => setAttributes({ buttonLabel: buttonLabel })}
 					onClick={ ( e ) => e.preventDefault() }
 					placeholder='Enter button label...'
 					className='wp-block-button__link wp-element-button'

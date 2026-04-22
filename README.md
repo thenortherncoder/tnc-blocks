@@ -7,11 +7,11 @@ A set of custom blocks.
 - Hero
 - Content
 - Profile Cards
+- Split content
+- Accordion
+- Media & Text
+- Cards
 
 ## To do
 
-- Split content
-- Accordion
-- Cards
 - Carousel
-- Media & Text

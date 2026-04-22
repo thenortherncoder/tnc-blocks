@@ -26,14 +26,55 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @see https://make.wordpress.org/core/2024/10/17/new-block-type-registration-apis-to-improve-performance-in-wordpress-6-7/
  */
 
+/**
+ * Block initialization.
+ */
+add_action( 'init', 'tnc_tnc_blocks_init' );
+
 function tnc_tnc_blocks_init() {
 	$block_directories = glob(__DIR__ . "/build/*", GLOB_ONLYDIR);
+
+	wp_register_style(
+        'tnc-material-symbols',
+        'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined',
+        [],
+        null
+    );
 
 	foreach ( $block_directories as $block ) {
 		register_block_type( $block );
 	}
 }
-add_action( 'init', 'tnc_tnc_blocks_init' );
+
+/**
+ * Enqueue block editor assets.
+ */
+add_action( 'init', function() {
+    wp_register_style(
+        'tnc-material-symbols',
+        'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined',
+        [],
+        null
+    );
+} );
+
+/**
+ * Enqueue block assets.
+ */
+add_filter( 'render_block_tnc/cards', function( $block_content, $block ) {
+    wp_enqueue_style( 'tnc-material-symbols' );
+    return $block_content;
+}, 10, 2 );
+
+add_action( 'enqueue_block_assets', function() {
+    wp_enqueue_style( 'tnc-material-symbols' );
+} );
+
+
+/**
+ * Custom block category.
+ */
+add_filter( 'block_categories_all', 'tnc_custom_block_category', 10, 2 );
 
 function tnc_custom_block_category( $categories, $post ) {
     return array_merge(
@@ -46,5 +87,3 @@ function tnc_custom_block_category( $categories, $post ) {
         $categories
     );
 }
-
-add_filter( 'block_categories_all', 'tnc_custom_block_category', 10, 2 );

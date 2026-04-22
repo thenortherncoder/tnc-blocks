@@ -8,15 +8,15 @@ export default function Edit() {
 			<div className="tnc-block-inner max-w-wp-wide ml-auto mr-auto">
 				<InnerBlocks
 					allowedBlocks={[
-						'tnc/profile-card'
+						'tnc/profile-cards-item'
 					]}
 					templateLock={false}
-					orientation="horizontal"
 					template={[
-						['tnc/profile-card'],
-						['tnc/profile-card'],
-						['tnc/profile-card']
+						['tnc/profile-cards-item'],
+						['tnc/profile-cards-item'],
+						['tnc/profile-cards-item']
 					]}
+					orientation="horizontal"
 				/>
 			</div>
 		</div>

@@ -1,0 +1,38 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tnc/weather",
+	"version": "0.1.0",
+	"title": "Weather",
+	"category": "tnc-blocks",
+	"icon": "cloud",
+	"description": "A block that displays the current weather for a specified location using the Google Weather API.",
+	"example": {},
+	"attributes": {
+		"placeName": {
+			"type": "string",
+			"default": "Heald Green"
+		},
+		"latitude": {
+			"type": "string",
+			"default": "53.3704"
+		},
+		"longitude": {
+			"type": "string",
+			"default": "2.2268"
+		},
+		"apiKey": {
+			"type": "string",
+			"default": "AIzaSyAGe7ZtvEXz6OQBdUPbthcGUGCt56498e8"
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "weather",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}

@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tnc/cards",
+	"version": "0.1.0",
+	"title": "Cards",
+	"category": "tnc-blocks",
+	"icon": "editor-table",
+	"description": "A block for displaying a collection of card items in a responsive grid layout.",
+	"example": {},
+	"usesContext": [ "tnc/isNested" ],
+	"attributes": {
+		"title": {
+			"type": "string"
+		}
+	},
+	"supports": {
+		"html": false,
+		"color": {
+			"background": true,
+			"text": false
+		}
+	},
+	"textdomain": "cards",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}

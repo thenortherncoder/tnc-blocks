@@ -5,7 +5,7 @@
 	"version": "0.1.0",
 	"title": "Accordion",
 	"category": "tnc-blocks",
-	"icon": "excerpt-view",
+	"icon": "list-view",
 	"description": "A simple accordion block for toggling content visibility.",
 	"example": {},
 	"usesContext": [ "tnc/isNested" ],

@@ -57,3 +57,8 @@
 .block-editor-block-list__layout ol li {
 	@apply list-decimal pl-2;
 }
+
+.is-root-container > .wp-block.is-selected,
+.is-root-container > .wp-block.has-child-selected {
+	border: 1px dotted #f00;
+}

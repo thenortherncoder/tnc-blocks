@@ -1,0 +1,39 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tnc/cards-item",
+	"version": "0.1.0",
+	"title": "Cards Item",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "Example block scaffolded with Create Block tool.",
+	"example": {},
+	"attributes": {
+		"icon": {
+			"type": "string",
+			"default": "nature"
+		},
+		"title": {
+			"type": "string"
+		},
+		"text": {
+			"type": "string"
+		},
+		"buttonLabel": {
+			"type": "string"
+		},
+		"buttonUrl": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "cards-item",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}

@@ -13,9 +13,17 @@
 
 <details <?php echo get_block_wrapper_attributes([ 'class' => 'tnc-block tnc-accordion-item bg-neutral-light rounded-lg mb-4 hover:cursor-pointer open:[&_svg]:rotate-45' ]); ?>>
 	<summary class="tnc-block-inner w-full flex justify-between p-6 items-center">
-		<h3><?php echo $attributes['summary']; ?></h3>
+		<h3>
+			<?php
+				if ( !empty( $attributes['summary'] ) ) :
+					echo $attributes['summary'];
+				else:
+					echo esc_html__( 'Summary', 'tnc-blocks' );
+				endif;
+			 ?>
+		</h3>
 
-		<svg class="transition-wp duration-wp min-w-10 ml-10" width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+		<svg class="tnc-accordion-item-svg transition-wp duration-wp min-w-10 ml-10" width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
 			<circle cx="20" cy="20" r="20" fill="white"/>
 			<path
 				d="M20 12V28M12 20H28"

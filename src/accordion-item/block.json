@@ -5,7 +5,7 @@
 	"version": "0.1.0",
 	"title": "Accordion Item",
 	"category": "tnc-blocks",
-	"icon": "smiley",
+	"icon": "list-view",
 	"description": "An individual item within an accordion block, containing a title and content.",
 	"example": {},
 	"attributes": {

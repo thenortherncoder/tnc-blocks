@@ -1,13 +1,21 @@
 import { __ } from '@wordpress/i18n';
-import { useBlockProps, RichText, InnerBlocks } from '@wordpress/block-editor';
+import { useBlockProps, InnerBlocks, RichText } from '@wordpress/block-editor';
+import { ALLOWED_BLOCKS } from '../utils/allowed-blocks';
 import './editor.css';
 
 export default function Edit({ attributes, setAttributes }) {
 
-	const { summary, content } = attributes;
+	const { summary } = attributes;
+
+	const ALLOWED_BLOCKS_TNC = [
+		'tnc/accordion',
+		'tnc/weather'
+	]
+
+	ALLOWED_BLOCKS.push(...ALLOWED_BLOCKS_TNC);
 
 	return (
-		<details { ...useBlockProps({ className: 'tnc-block tnc-accordion-item bg-neutral-light rounded-lg mb-4 hover:cursor-pointer open:[&_svg]:rotate-45' }) }>
+		<details { ...useBlockProps({ className: 'tnc-block tnc-accordion-item bg-neutral-light rounded-lg mb-4 hover:cursor-pointer open:[&_.tnc-accordion-item-svg]:rotate-45' }) }>
 			<summary className="tnc-block-inner w-full flex justify-between p-6 items-center">
 				<RichText
 					tagName='h3'
@@ -18,8 +26,7 @@ export default function Edit({ attributes, setAttributes }) {
 					placeholder='Enter summary...'
 					className='mb-0'
 				/>
-
-				<svg className="transition-wp duration-wp min-w-10 ml-10" width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+				<svg className="tnc-accordion-item-svg transition-wp duration-wp min-w-10 ml-10" width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
 					<circle cx="20" cy="20" r="20" fill="white"/>
 					<path
 						d="M20 12V28M12 20H28"
@@ -31,13 +38,7 @@ export default function Edit({ attributes, setAttributes }) {
 			</summary>
 			<div className="tnc-block-content p-6 pt-0">
 				<InnerBlocks
-					allowedBlocks={[
-						'core/heading',
-						'core/paragraph',
-						'core/list',
-						'core/list-item',
-						'core/image'
-					]}
+					allowedBlocks={ALLOWED_BLOCKS}
 					templateLock={false}
 				/>
 			</div>

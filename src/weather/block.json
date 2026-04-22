@@ -23,7 +23,7 @@
 		},
 		"apiKey": {
 			"type": "string",
-			"default": "AIzaSyAGe7ZtvEXz6OQBdUPbthcGUGCt56498e8"
+			"default": ""
 		}
 	},
 	"supports": {

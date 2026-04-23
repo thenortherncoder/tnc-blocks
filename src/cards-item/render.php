@@ -35,9 +35,6 @@ $icon = isset( $attributes['icon'] ) ? sanitize_text_field( $attributes['icon'] 
 	<?php
 		if ( isset( $attributes['buttonLabel'] ) && $attributes['buttonLabel'] && isset( $attributes['buttonUrl'] ) && $attributes['buttonUrl'] ) :
 			$button_url = $attributes['buttonUrl'];
-			if ( strpos( $button_url, 'mailto:' ) !== 0 ) {
-				$button_url = 'mailto:' . ltrim( preg_replace( '#^https?://#', '', $button_url ) );
-			}
 			?>
 			<div class="wp-block-button mt-4">
 				<a href="<?php echo esc_url( $button_url ); ?>" class="wp-block-button__link wp-element-button inline-flex"><?php echo esc_html( $attributes['buttonLabel'] ); ?></a>

@@ -1,0 +1,35 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tnc/cta-block",
+	"version": "0.1.0",
+	"title": "CTA Block",
+	"category": "tnc-blocks",
+	"icon": "button",
+	"description": "Call to action block with title and text.",
+	"example": {},
+	"usesContext": [ "tnc/isNested" ],
+	"attributes": {
+		"title": {
+			"type": "string"
+		},
+		"text": {
+			"type": "string"
+		},
+		"buttonLabel": {
+			"type": "string"
+		},
+		"buttonUrl": {
+			"type": "string"
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "cta-block",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}

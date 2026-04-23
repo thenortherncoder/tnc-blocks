@@ -35,7 +35,7 @@ export default function Edit({ attributes, setAttributes }) {
 								className="w-full h-full object-cover rounded-2xl object-center aspect-6/4"
 							/>
 							<Button
-								className='absolute top-4 left-4 bg-white! rounded cursor-pointer z-10 !p-1 !min-w-0 !h-auto'
+								className='absolute top-4 left-4 bg-white! rounded cursor-pointer z-10 p-1! min-w-0! h-auto!'
 								onClick={ onRemoveImage }
 								label={ __( 'Remove image', 'tnc' ) }
 							>

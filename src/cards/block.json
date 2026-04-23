@@ -12,6 +12,10 @@
 	"attributes": {
 		"title": {
 			"type": "string"
+		},
+		"columnCount": {
+			"type": "number",
+			"default": 3
 		}
 	},
 	"supports": {

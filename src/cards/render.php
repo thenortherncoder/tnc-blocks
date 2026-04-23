@@ -29,7 +29,7 @@ $inner_classes = 'tnc-block-inner tnc-block-cards max-w-wp-content ' . $margin_c
 			endif;
 		?>
 
-		<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+		<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-<?php echo isset( $attributes['columnCount'] ) ? esc_attr( $attributes['columnCount'] ) : '3'; ?>">
 			<?php
 				echo $content;
 			?>

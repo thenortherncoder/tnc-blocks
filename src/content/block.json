@@ -5,7 +5,7 @@
 	"version": "0.1.0",
 	"title": "Content",
 	"category": "tnc-blocks",
-	"icon": "text",
+	"icon": "media-document",
 	"description": "Example block scaffolded with Create Block tool.",
 	"example": {},
 	"supports": {

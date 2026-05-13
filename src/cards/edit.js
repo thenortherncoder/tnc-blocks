@@ -8,13 +8,14 @@ export default function Edit({ attributes, setAttributes, context }) {
 
 	const { title, columnCount } = attributes;
 	const isNested = context['tnc/isNested'];
+	const width = columnCount > 3 ? 'wide' : 'content';
 
 	const gridMap = {
         1: 'lg:grid-cols-1',
         2: 'lg:grid-cols-2',
         3: 'lg:grid-cols-3',
         4: 'lg:grid-cols-4',
-        5: 'lg:grid-cols-5',
+        5: 'lg:grid-cols-4 xl:grid-cols-5',
     };
 
 	const blockProps = useBlockProps({
@@ -39,7 +40,7 @@ export default function Edit({ attributes, setAttributes, context }) {
 
 	return (
 		<div { ...blockProps }>
-			<div className="tnc-block-inner tnc-block-content max-w-wp-content ml-auto mr-auto">
+			<div className={`tnc-block-inner tnc-block-content max-w-wp-${width} ml-auto mr-auto`}>
 				<RichText
 					tagName='h2'
 					withoutInteractiveFormatting={true}

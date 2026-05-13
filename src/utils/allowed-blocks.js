@@ -7,6 +7,5 @@ export const ALLOWED_BLOCKS = [
 	'core/media',
 	'core/embed',
 	'core/table',
-	'core/buttons',
-	'core/button',
+	'core/buttons'
 ]
